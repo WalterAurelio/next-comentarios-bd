@@ -7,12 +7,12 @@ export async function GET() {
 }
 
 export async function POST(request) {
-  const comment = await request.json();
-  await prisma.task.create({
-    comment: {
-      title: comment.title,
-      description: data.description
+  const data = await request.json();
+  const newComment = await prisma.task.create({
+    data: {
+      user: data.description,
+      description: data.user
     }
   });
-  return NextResponse.json('creando comentario');
+  return NextResponse.json(newComment);
 }

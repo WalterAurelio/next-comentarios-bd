@@ -10,8 +10,8 @@ export async function POST(request) {
   const data = await request.json();
   const newComment = await prisma.task.create({
     data: {
-      user: data.description,
-      description: data.user
+      user: data.user,
+      description: data.description
     }
   });
   return NextResponse.json(newComment);

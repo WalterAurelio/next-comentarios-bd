@@ -1,7 +1,10 @@
 'use client';
 import React from "react";
+import { useRouter } from 'next/navigation';
 
 function FormComment() {
+
+  const router = useRouter();
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -16,6 +19,7 @@ function FormComment() {
     });
     const data = await res.json();
     console.log(data);
+    router.push('/');
   } 
 
   return (

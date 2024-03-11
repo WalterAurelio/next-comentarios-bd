@@ -19,27 +19,35 @@ function FormComment() {
     });
     const data = await res.json();
     console.log(data);
+    router.refresh();
     router.push('/');
   } 
 
   return (
-    <form
-      onSubmit={handleSubmit}
-    >
-      <label
-        htmlFor="comentario"
+      <form
+        className="flex flex-col py-4 w-custom mx-auto"
+        onSubmit={handleSubmit}
       >
-        Comentario:
-      </label>
-      <input 
-        className="text-black"
-        type="text"
-        id="comentario"
-        placeholder="Ingrese un comentario"
-      />
+        <label
+          className="text-xl mb-2"
+          htmlFor="comentario"
+        >
+          Comentario:
+        </label>
+        <textarea 
+          className="text-black h-40 mb-4 p-2 outline-none resize-none rounded-md"
+          id="comentario"
+          placeholder="Ingrese un comentario"
+        />
 
-      <button type="submit">Enviar</button>
-    </form>
+        <button 
+          type="submit"
+          className="bg-blue-900 py-2 hover:bg-blue-500 rounded-md"
+        >
+          Enviar
+        </button>
+      </form>
+
   );
 }
 

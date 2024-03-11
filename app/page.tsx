@@ -21,9 +21,9 @@ async function HomePage() {
 
   return (
     <>
-      <h2 className="mb-2">Publicaciones:</h2>
+      <h2 className="mb-2 text-[3rem] text-center">Publicaciones:</h2>
 
-      <div className="flex flex-wrap gap-2 justify-center">
+      <div className="grid grid-cols-auto gap-4 w-custom mx-auto">
         {
           comments.map((comment: any) => (
             <Comment key={comment.id} comment={comment} />
@@ -31,7 +31,7 @@ async function HomePage() {
         }
       </div>
 
-      {/* <FormComment /> */}
+      <FormComment />
     </>
   );
 }

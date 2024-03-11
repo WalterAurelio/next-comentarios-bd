@@ -1,10 +1,10 @@
 'use client';
-import React from "react";
+import React, { useRef } from "react";
 import { useRouter } from 'next/navigation';
 
 function FormComment() {
-
   const router = useRouter();
+  const ref = useRef<HTMLFormElement>(null);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -19,12 +19,14 @@ function FormComment() {
     });
     const data = await res.json();
     console.log(data);
-    router.refresh();
+    ref.current?.reset();
     router.push('/');
+    router.refresh();
   } 
 
   return (
       <form
+        ref={ref}
         className="flex flex-col py-4 w-custom mx-auto"
         onSubmit={handleSubmit}
       >

@@ -19,6 +19,7 @@ function Comment({ comment }: any) {
       <p>{comment.description}</p>
       <div className="flex justify-between mt-2">
         <button
+          type="button"
           className="bg-slate-700 p-2 rounded-md"
           onClick={() => {
             router.push(`/tasks/${comment.id}`);
@@ -27,11 +28,12 @@ function Comment({ comment }: any) {
           Ver comentario
         </button>
         <button
+          type="button"
           className="bg-slate-700 p-2 rounded-md"
           onClick={() => {
             deleteComment(comment.id);
+            router.push('/');
             router.refresh();
-            router.push('./');
           }}
         >
           Eliminar comentario
